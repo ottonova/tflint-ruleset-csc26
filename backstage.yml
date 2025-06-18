@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: weasel
+  title: Weasel
+  description: Weasel is a program which runs regularly. It looks for certain files on remote servers. If a new file is found, it streams it into a data storage automatically.
+spec:
+  type: go-app
+  lifecycle: production
+  owner: teams-clu

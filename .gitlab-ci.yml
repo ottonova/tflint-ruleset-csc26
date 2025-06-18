@@ -1,0 +1,23 @@
+stages:
+  - lint
+  - test
+  - build
+  - push
+  - release
+
+include:
+  - project: shared/gitlab-templates
+    file:
+      # - Jobs/Build.gitlab-ci.yml
+      - golang.yml
+
+.go-cache:
+  variables:
+    KUBERNETES_HELPER_MEMORY_LIMIT: 256Mi
+    KUBERNETES_MEMORY_LIMIT: 2Gi
+    KUBERNETES_MEMORY_REQUEST: 2Gi
+
+goreleaser:build:
+  image:
+    name: goreleaser/goreleaser:nightly
+    entrypoint: [""]
