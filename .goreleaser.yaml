@@ -19,7 +19,8 @@ snapshot:
 
 # Releaser config
 builds:
-  - main: ./cmd/{{.ProjectName}}-cli
+  - main: ./cmd/main
+    binary: "{{.ProjectName}}"
     flags:
       - -v
     ldflags:
@@ -33,7 +34,7 @@ builds:
       - amd64
       - arm64
   - id: "debug-build"
-    main: ./cmd/{{.ProjectName}}-cli
+    main: ./cmd/main
     binary: "debug-{{.ProjectName}}"
     flags:
       - -v
