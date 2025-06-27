@@ -38,7 +38,6 @@ builds:
     goarch:
       - amd64
       - arm64
-    replace: false
   - id: "debug-build"
     main: ./cmd/main.go
     binary: "debug-{{.ProjectName}}"
@@ -58,7 +57,7 @@ builds:
     no_unique_dist_dir: true
 
 universal_binaries:
-  - replace: true
+  - replace: false
 
 archives:
   - formats:
