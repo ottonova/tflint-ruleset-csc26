@@ -18,6 +18,10 @@ include:
     KUBERNETES_MEMORY_REQUEST: 2Gi
 
 goreleaser:build:
+  secrets:
+    GITHUB_TOKEN:
+      vault: ci/terraform/GITHUB_ADMIN_PAT/value@secret
+      file: false
   image:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]

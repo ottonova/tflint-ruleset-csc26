@@ -14,6 +14,11 @@ gitlab_urls:
   # Set this if you set GITLAB_TOKEN to the value of CI_JOB_TOKEN.
   use_job_token: true
 
+github_urls:
+  api: https://api.github.com/
+  upload: https://uploads.github.com/
+  download: https://github.com/
+
 snapshot:
   version_template: "{{ incpatch .Version }}-next"
 
@@ -74,6 +79,17 @@ changelog:
       - Merge branch
 
 release:
+
+  # GitLab configuration
+  gitlab:
+    owner: shared/software
+    name: "{{.ProjectName}}"
+
+  # GitHub configuration
+  github:
+    owner: ottonova
+    name: "{{.ProjectName}}"
+
   name_template: "{{ title .ProjectName}} v{{.Version}}"
   header: |
     Welcome to the latest release of {{ title .ProjectName}}!
