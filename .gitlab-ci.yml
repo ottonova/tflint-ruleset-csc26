@@ -20,7 +20,7 @@ include:
 goreleaser:build:
   secrets:
     GITHUB_TOKEN:
-      vault: ci/terraform/GITHUB_ADMIN_PAT/value@secret
+      vault: ci/terraform/GITHUB_USER_PAT_CLASSIC/value@secret
       file: false
   image:
     name: goreleaser/goreleaser:nightly
