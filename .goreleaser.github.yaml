@@ -38,25 +38,23 @@ builds:
     goarch:
       - amd64
       - arm64
-      - darwin_amd64
-      - darwin_arm64
-  - id: "debug-build"
-    main: ./cmd/main.go
-    binary: "debug-{{.ProjectName}}"
-    flags:
-      - -v
-    gcflags:
-      - all=-N -l
-    ldflags:
-      - -X gitlab.on.ag/shared/software/tflint-ruleset-csc26/internal/app/version.Version=v{{.Version}}
-    tags:
-      - debug
-    env:
-      - CGO_ENABLED=0
-    targets:
-      - darwin_amd64
-      - darwin_arm64
-    no_unique_dist_dir: true
+  # - id: "debug-build"
+  #   main: ./cmd/main.go
+  #   binary: "debug-{{.ProjectName}}"
+  #   flags:
+  #     - -v
+  #   gcflags:
+  #     - all=-N -l
+  #   ldflags:
+  #     - -X gitlab.on.ag/shared/software/tflint-ruleset-csc26/internal/app/version.Version=v{{.Version}}
+  #   tags:
+  #     - debug
+  #   env:
+  #     - CGO_ENABLED=0
+  #   targets:
+  #     - darwin_amd64
+  #     - darwin_arm64
+  #   no_unique_dist_dir: true
 
 universal_binaries:
   - replace: true
