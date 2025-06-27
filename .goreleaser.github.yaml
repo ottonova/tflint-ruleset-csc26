@@ -81,7 +81,7 @@ changelog:
 release:
   github:
     owner: ottonova
-    name: "{{.ProjectName}}"
+    name: tflint-ruleset-csc26
 
   name_template: "{{ title .ProjectName}} v{{.Version}}"
   header: |
