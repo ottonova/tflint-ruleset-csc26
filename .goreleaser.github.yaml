@@ -29,7 +29,7 @@ builds:
     flags:
       - -v
     ldflags:
-      - -s -w -extldflags '-static' -X gitlab.on.ag/shared/software/tflint-ruleset-csc26/internal/app/version.Version=v{{.Version}}
+      - -s -w -extldflags '-static' -X gitlab.on.ag/shared/software/tflint-ruleset-csc26/internal/app/version.Version={{.Version}}
     env:
       - CGO_ENABLED=0
     goos:
@@ -46,7 +46,7 @@ builds:
     gcflags:
       - all=-N -l
     ldflags:
-      - -X gitlab.on.ag/shared/software/tflint-ruleset-csc26/internal/app/version.Version=v{{.Version}}
+      - -X gitlab.on.ag/shared/software/tflint-ruleset-csc26/internal/app/version.Version={{.Version}}
     tags:
       - debug
     env:
@@ -83,6 +83,6 @@ release:
     owner: ottonova
     name: tflint-ruleset-csc26
 
-  name_template: "{{ title .ProjectName}} v{{.Version}}"
+  name_template: "{{ title .ProjectName}} {{.Version}}"
   header: |
     Welcome to the latest release of {{ title .ProjectName}}!
