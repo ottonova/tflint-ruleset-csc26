@@ -80,8 +80,7 @@ archives:
     formats:
       - tar.gz
     name_template: >-
-      debug_
-      {{ .ProjectName }}_
+      debug_{{ .ProjectName }}_
       {{- tolower .Os }}_
       {{- if eq .Arch "amd64" }}x86_64
       {{- else }}{{ .Arch }}{{ end }}
