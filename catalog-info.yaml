@@ -1,0 +1,20 @@
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: weasel
+  title: Weasel
+  description: A small tool to automate the download of artifacts like releases, master data, voice records, etc.
+  links:
+    - url: https://jenkins-grinder.office.ottonova.de/view/tools/job/tools-weasel/
+      title: Jenkins Grinder Job
+      type: scheduled-job
+    - url: https://confluence.office.ottonova.de/display/IT/Weasel
+      title: Confluence documentation
+      type: documentation
+  tags:
+    - private
+spec:
+  type: app
+  lifecycle: production
+  owner: teams-clu
