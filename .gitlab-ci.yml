@@ -51,6 +51,8 @@ goreleaser:release:github:
     GITHUB_TOKEN:
       vault: ci/terraform/GITHUB_USER_PAT_CLASSIC/value@secret
       file: false
+  variables:
+    GITLAB_TOKEN: ""
   image:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]
