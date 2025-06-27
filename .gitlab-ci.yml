@@ -38,7 +38,11 @@ goreleaser:build:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]
 
+goreleaser:release:
+  needs: []
+
 goreleaser:release:github:
+  needs: []
   extends: "goreleaser:release"
   id_tokens:
     VAULT_ID_TOKEN:
