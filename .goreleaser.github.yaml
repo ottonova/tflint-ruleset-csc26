@@ -24,7 +24,8 @@ snapshot:
 
 # Releaser config
 builds:
-  - main: ./cmd/main.go
+  - id: "prod-build"
+    main: ./cmd/main.go
     binary: "{{.ProjectName}}"
     flags:
       - -v
@@ -60,11 +61,22 @@ universal_binaries:
   - replace: false
 
 archives:
-  - formats:
+  - id: "prod-build"
+    formats:
       - tar.gz
       - zip
     # this name template makes the OS and Arch compatible with the results of uname.
     name_template: >-
+      {{ .ProjectName }}_
+      {{- tolower .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+  - id: "debug-build"
+    formats:
+      - tar.gz
+    name_template: >-
+      debug_
       {{ .ProjectName }}_
       {{- tolower .Os }}_
       {{- if eq .Arch "amd64" }}x86_64
