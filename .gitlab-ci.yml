@@ -17,6 +17,22 @@ include:
     KUBERNETES_MEMORY_LIMIT: 2Gi
     KUBERNETES_MEMORY_REQUEST: 2Gi
 
+.skip-on-tag: &skip-on-tag
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+
+golangci:lint:
+  <<: *skip-on-tag
+go:test:unit:
+  <<: *skip-on-tag
+go:test:race:
+  <<: *skip-on-tag
+gocover:coverage:
+  <<: *skip-on-tag
+gocover:cobertura:
+  <<: *skip-on-tag
+
 goreleaser:build:
   image:
     name: goreleaser/goreleaser:nightly
@@ -35,4 +51,4 @@ goreleaser:release:github:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]
   script:
-    - goreleaser release --config .goreleaser.github.yml
+    - goreleaser release --config .goreleaser.github.yaml
