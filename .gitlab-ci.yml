@@ -18,6 +18,11 @@ include:
     KUBERNETES_MEMORY_REQUEST: 2Gi
 
 goreleaser:build:
+  image:
+    name: goreleaser/goreleaser:nightly
+    entrypoint: [""]
+
+goreleaser:build:github:
   secrets:
     GITHUB_TOKEN:
       vault: ci/terraform/GITHUB_USER_PAT_CLASSIC/value@secret
@@ -25,3 +30,5 @@ goreleaser:build:
   image:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]
+  script:
+    - goreleaser build --snapshot --config .goreleaser.github.yml

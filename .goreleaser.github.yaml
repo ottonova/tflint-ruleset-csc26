@@ -79,6 +79,10 @@ changelog:
       - Merge branch
 
 release:
+  github:
+    owner: ottonova
+    name: "{{.ProjectName}}"
+
   name_template: "{{ title .ProjectName}} v{{.Version}}"
   header: |
     Welcome to the latest release of {{ title .ProjectName}}!
