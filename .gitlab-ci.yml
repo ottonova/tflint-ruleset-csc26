@@ -22,7 +22,8 @@ goreleaser:build:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]
 
-goreleaser:build:github:
+goreleaser:release:github:
+  extends: "goreleaser:release"
   secrets:
     GITHUB_TOKEN:
       vault: ci/terraform/GITHUB_USER_PAT_CLASSIC/value@secret
