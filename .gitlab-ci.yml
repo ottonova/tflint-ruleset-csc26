@@ -24,6 +24,9 @@ goreleaser:build:
 
 goreleaser:release:github:
   extends: "goreleaser:release"
+  id_tokens:
+    VAULT_ID_TOKEN:
+      aud: https://vault.office.ottonova.de
   secrets:
     GITHUB_TOKEN:
       vault: ci/terraform/GITHUB_USER_PAT_CLASSIC/value@secret
@@ -32,4 +35,4 @@ goreleaser:release:github:
     name: goreleaser/goreleaser:nightly
     entrypoint: [""]
   script:
-    - goreleaser build --snapshot --config .goreleaser.github.yml
+    - goreleaser release --config .goreleaser.github.yml
